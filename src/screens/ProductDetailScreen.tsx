@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, ScrollView, StyleSheet, SafeAreaView, Alert } from 'react-native';
+import { View, Text, Image, ScrollView, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useProductDetail, useEMIPlans } from '../hooks/useProducts';
 import VariantSelector from '../components/VariantSelector';
 import EMIPlanCard from '../components/EMIPlanCard';
@@ -9,7 +10,7 @@ import ErrorState from '../components/ErrorState';
 import { ProductVariant, EMIPlan } from '../types/marketplace';
 import { colors, spacing, typography } from '../theme/theme';
 
-export default function ProductDetailScreen({ route }: any) {
+export default function ProductDetailScreen({ route, navigation }: any) {
   const { productId } = route.params;
   const productState = useProductDetail(productId);
 
@@ -47,6 +48,18 @@ export default function ProductDetailScreen({ route }: any) {
           </Text>
           <Text style={styles.description}>{product.description}</Text>
 
+          {product.specs?.length > 0 && (
+            <View style={styles.specsBox}>
+              <Text style={styles.sectionTitle}>Details</Text>
+              {product.specs.map((spec: string, i: number) => (
+                <View key={i} style={styles.specRow}>
+                  <Text style={styles.specBullet}>•</Text>
+                  <Text style={styles.specText}>{spec}</Text>
+                </View>
+              ))}
+            </View>
+          )}
+
           {selectedVariant && (
             <VariantSelector
               variants={product.variants}
@@ -81,10 +94,11 @@ export default function ProductDetailScreen({ route }: any) {
           label={selectedPlan ? `Proceed · ₹${selectedPlan.monthlyAmount.toLocaleString('en-IN')}/mo` : 'Select an EMI plan'}
           disabled={!selectedPlan}
           onPress={() =>
-            Alert.alert(
-              'Plan selected',
-              `${product.name} (${selectedVariant?.label}) · ${selectedPlan?.tenureMonths} months`
-            )
+            navigation.navigate('OrderSummary', {
+              product,
+              variant: selectedVariant,
+              plan: selectedPlan,
+            })
           }
         />
       </View>
@@ -101,6 +115,10 @@ const styles = StyleSheet.create({
   price: { ...typography.h2, color: colors.text, marginTop: spacing.sm },
   description: { ...typography.body, color: colors.textMuted, marginTop: spacing.sm },
   sectionTitle: { ...typography.h2, fontSize: 16, color: colors.text, marginTop: spacing.lg, marginBottom: spacing.sm },
+  specsBox: { marginTop: spacing.md },
+  specRow: { flexDirection: 'row', marginBottom: spacing.xs },
+  specBullet: { ...typography.body, color: colors.primary, marginRight: spacing.sm },
+  specText: { ...typography.body, color: colors.text, flex: 1 },
   footer: {
     position: 'absolute',
     bottom: 0, left: 0, right: 0,

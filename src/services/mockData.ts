@@ -9,6 +9,13 @@ export const MOCK_PRODUCTS: Product[] = [
     basePrice: 69900,
     description: 'A16 Bionic chip, 48MP camera, all-day battery life.',
     maxEmiTenureMonths: 24,
+    specs: [
+      '6.1-inch Super Retina XDR display',
+      'A16 Bionic chip',
+      '48MP Main camera with 2x Telephoto',
+      'Up to 20 hours video playback',
+      '1-year manufacturer warranty',
+    ],
     variants: [
       { id: 'v1', label: '128GB - Black', price: 69900, inStock: true },
       { id: 'v2', label: '256GB - Blue', price: 79900, inStock: true },
@@ -23,6 +30,13 @@ export const MOCK_PRODUCTS: Product[] = [
     basePrice: 74999,
     description: 'Snapdragon 8 Gen 3, AI-powered camera, 120Hz display.',
     maxEmiTenureMonths: 12,
+    specs: [
+      '6.2-inch Dynamic AMOLED 2X, 120Hz',
+      'Snapdragon 8 Gen 3 for Galaxy',
+      '50MP triple camera with AI editing',
+      '25W fast charging',
+      '1-year manufacturer warranty',
+    ],
     variants: [
       { id: 'v1', label: '128GB - Onyx Black', price: 74999, inStock: true },
       { id: 'v2', label: '256GB - Marble Gray', price: 82999, inStock: true },
@@ -36,6 +50,13 @@ export const MOCK_PRODUCTS: Product[] = [
     basePrice: 99900,
     description: '13-inch, M2 chip, up to 18 hours battery.',
     maxEmiTenureMonths: 24,
+    specs: [
+      '13.6-inch Liquid Retina display',
+      'Apple M2 chip, 8-core CPU',
+      'Up to 18 hours battery life',
+      '1080p FaceTime HD camera',
+      '1-year manufacturer warranty',
+    ],
     variants: [
       { id: 'v1', label: '256GB - Midnight', price: 99900, inStock: true },
       { id: 'v2', label: '512GB - Starlight', price: 119900, inStock: true },
@@ -49,6 +70,12 @@ export const MOCK_PRODUCTS: Product[] = [
     basePrice: 71500,
     description: '24K 999 purity hallmarked gold coin.',
     maxEmiTenureMonths: 6,
+    specs: [
+      '24 Karat, 999 purity',
+      'BIS Hallmarked',
+      'Tamper-proof sealed packaging',
+      'Includes purity certificate',
+    ],
     variants: [
       { id: 'v1', label: '10g', price: 71500, inStock: true },
       { id: 'v2', label: '20g', price: 142500, inStock: true },

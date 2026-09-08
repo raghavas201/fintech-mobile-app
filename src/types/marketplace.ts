@@ -14,6 +14,7 @@ export interface Product {
   description: string;
   variants: ProductVariant[];
   maxEmiTenureMonths: number; // for "No-cost EMIs upto N months" subtitle
+  specs: string[]; // e.g. "6.1-inch Super Retina display"
 }
 
 export interface EMIPlan {
@@ -23,6 +24,12 @@ export interface EMIPlan {
   interestRate: number; // annual %
   processingFee: number;
   totalPayable: number;
+}
+
+export interface OrderSummary {
+  product: Product;
+  variant: ProductVariant;
+  plan: EMIPlan;
 }
 
 export type AsyncState<T> =
