@@ -53,19 +53,3 @@ npx expo start
 - `src/theme` — colors picked directly from the reference screenshots; tweak
   `gradientStart`/`gradientEnd`/`primary` if you get exact hex values from the app
 
-## Before you submit
-1. Pull exact hex values from the screenshots (use a color picker) and update
-   `theme.ts` if you want pixel-perfect match.
-2. Swap `mockData.ts` products for whatever's in the assignment's reference
-   material, if it specifies exact products/EMI terms.
-3. Toggle `SIMULATE_ERROR = true` in `src/services/api.ts` to demo error states,
-   then set back to `false`.
-
-## What to mention in interview
-- Marketplace is a tab within Shop (state, not navigation) — matches how the
-  real app toggles Top Brands/Nearby Stores, so Marketplace slots in consistently
-  rather than feeling like a bolted-on separate screen.
-- EMI plans are capped per-product (`maxEmiTenureMonths`) exactly like the "No-cost
-  EMIs upto N months" copy seen on every brand card in the real app.
-- Loading/error states are handled once via `useAsync` and reused across product
-  list and EMI plans, not duplicated.
