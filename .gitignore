@@ -1,0 +1,42 @@
+# Node / Expo
+node_modules/
+.expo/
+.expo-shared/
+.expo-dev-client/
+web-build/
+dist/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Native build artifacts
+android/
+ios/
+
+# Metro cache
+.metro-health-check*
+.cache/
+
+# Coverage / test output
+coverage/
+
+# Misc
+*.log
